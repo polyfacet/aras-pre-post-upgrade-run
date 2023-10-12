@@ -23,3 +23,17 @@ This solutions aims to remove the need of using another tool than the Import/Con
 ## The concept
 
 The simple idea is to hook in a method on the DatabaseUpgrade item type, that triggers specific pre- and post run methods based on the Release target.
+
+## Supported/verified
+
+The solution is developed on Release 2023 of Aras Innovator.  
+The solution has been tested on the following releases.
+  - R22?
+
+## Technical description
+
+### Packages
+
+se.hilleconsultit.hc_db_upgrade (HC_DatabaseUpgradeExt)
+se.hilleconsultit.hc_db_upgrade.pre_run (HC_DatabaseUpgradePreRun)
+se.hilleconsultit.hc_db_upgrade.post_run (HC_DatabaseUpgradePostRun)
