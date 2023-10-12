@@ -192,6 +192,18 @@
     <source_id keyed_name="DatabaseUpgrade" type="ItemType" name="DatabaseUpgrade">4DAD707F62B54823AE2E4730BB00C649</source_id>
     <type>default</type>
    </Item>
+   <Item type="Server Event" id="3008A1AAF6F64FAA924159296EFECCE5" action="add">
+    <event_version>version_1</event_version>
+    <is_required>0</is_required>
+    <related_id keyed_name="HC_DatabaseUpgradeExt" type="Method">
+     <Item type="Method" action="get" select="id">
+      <name>HC_DatabaseUpgradeExt</name>
+     </Item>
+    </related_id>
+    <server_event>onAfterUpdate</server_event>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="DatabaseUpgrade" type="ItemType" name="DatabaseUpgrade">4DAD707F62B54823AE2E4730BB00C649</source_id>
+   </Item>
    <Item type="ItemType Life Cycle" id="834C5BB5ADA744529CE2E353CA4B4EAF" action="add">
     <related_id keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</related_id>
     <sort_order>128</sort_order>

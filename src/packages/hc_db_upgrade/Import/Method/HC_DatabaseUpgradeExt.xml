@@ -1,0 +1,39 @@
+﻿<AML>
+ <Item type="Method" id="CDD4EA229089486EA00C5304BCE0337F" action="add">
+  <execution_allowed_to keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</execution_allowed_to>
+  <method_code><![CDATA[// Calls specific pre- or post run methods after a specific pre_run/post_run package has been successfully imported
+
+const string PreRunPackage = "se.hilleconsultit.hc_db_upgrade.pre_run";
+const string PreRunMethod = "HC_DatabaseUpgradePreRun";
+
+const string PostRunPackage = "se.hilleconsultit.hc_db_upgrade.post_run";
+const string PostRunMethod = "HC_DatabaseUpgradePostRun";
+
+string packageName = this.getProperty("name");
+bool isPreRunPackage = (packageName == PreRunPackage) ? true : false;
+bool isPostRunPackage = (packageName == PostRunPackage) ? true : false;
+bool isActionPackage = isPreRunPackage || isPostRunPackage;
+
+bool isLatest = (this.getProperty("is_latest") == "1") ? true : false;
+bool isSucceessful = (this.getProperty("upgrade_status") == "1") ? true : false;
+
+bool isLatestSuccessfulActionPackage = isSucceessful && isLatest && isActionPackage;
+
+string targetRelease = this.getProperty("target_release");
+
+if (isLatestSuccessfulActionPackage) {
+    Innovator inn = this.getInnovator();
+    string body = $"<target_release>{targetRelease}</target_release>";
+    if (isPreRunPackage) {
+        inn.applyMethod(PreRunMethod, body);
+    }
+    if (isPostRunPackage) {
+        inn.applyMethod(PostRunMethod, body);
+    }
+}
+
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>HC_DatabaseUpgradeExt</name>
+ </Item>
+</AML>

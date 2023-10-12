@@ -1,0 +1,48 @@
+﻿<AML>
+ <Item type="Method" id="9B48A37CACDB49C1A509D7C7CC02CDB3" action="add">
+  <execution_allowed_to keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</execution_allowed_to>
+  <method_code><![CDATA[string targetRelease = this.getProperty("target_release");
+Innovator inn = this.getInnovator();
+
+var actions = new List<KeyValuePair<string, Action>>();
+
+actions.Add(new KeyValuePair<string, Action>("1.0", GoodbyeWorld));
+actions.Add(new KeyValuePair<string, Action>("1.0", GoodbyeAgainWorld));
+actions.Add(new KeyValuePair<string, Action>("2.0", GoodbyeWorld2));
+
+foreach (var action in actions) {
+    if (action.Key == targetRelease) {
+        // Execute action if the action matches the current release
+        try {
+            System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Run(action.Value);
+            task.Wait(); // task.Wait(5000); Optionaly just wait a limited time. For longer jobs, that we don't want/need the upgrade tool to wait for.
+        }
+        catch (Exception ex) {
+            string errorLogMessage = ex.ToString();
+            LogMessage(errorLogMessage);
+            CCO.Utilities.WriteDebug("ERROR_HC_DatabaseUpgrade", errorLogMessage);
+        }
+    }
+}
+
+void GoodbyeWorld() {
+    LogMessage($"Goodbye '{inn.getUserID()}' Post Run ");
+}
+
+void GoodbyeAgainWorld() {
+    LogMessage($"Goodbye again '{inn.getUserID()}' Post Run ");
+}
+
+void GoodbyeWorld2() {
+    LogMessage($"Goodbye 2 the World '{inn.getUserID()}' Post Run ");
+}
+
+void LogMessage(string message) {
+    CCO.Utilities.WriteDebug("HC_DatabaseUpgrade", message);
+}
+
+return this;]]></method_code>
+  <method_type>C#</method_type>
+  <name>HC_DatabaseUpgradePostRun</name>
+ </Item>
+</AML>

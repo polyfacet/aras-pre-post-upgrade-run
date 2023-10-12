@@ -1,5 +1,9 @@
 <imports>
-  <package name="com.aras.innovator.core" path=".\">
-    <dependson name="com.aras.innovator.admin" />
+  <package name="se.hilleconsultit.hc_db_upgrade.pre_run" path="pre_run\Import">
+    <dependson name="se.hilleconsultit.hc_db_upgrade" />
   </package>
+  <package name="se.hilleconsultit.hc_db_upgrade.post_run" path="post_run\Import">
+    <dependson name="se.hilleconsultit.hc_db_upgrade" />
+  </package>
+  <package name="se.hilleconsultit.hc_db_upgrade" path="hc_db_upgrade\Import" />
 </imports>
