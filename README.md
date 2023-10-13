@@ -6,6 +6,7 @@ Solution of handling pre- and post actions on database upgrades (imports) to Ara
 - [The problem this solution solves](#the-problem-this-solution-solves)
 - [The concept](#the-concept)
 - [Supported/verified](#supportedverified)
+- [Getting started](#getting-started)
 - [Technical description](#technical-description)
   - [Packages](#packages)
 
@@ -39,6 +40,14 @@ The solution is developed on Release 2023 of Aras Innovator.
 The solution has been tested on the following releases.
 
 - R22?
+
+## Getting started
+
+0. Have an Aras Innovator environment. (As mentioned, it has currently only been tested on the 2023 release)
+1. Clone this repo
+2. Configure: [env.config](./scripts/deploy/env.config)
+3. Run [deploy.ps1](./scripts/deploy/deploy.ps1) to install solution
+4. Run again to test. See log file <installpath>\Innovator\Server\temp\HC_DatabaseUpgrade.log
 
 ## Technical description
 
