@@ -2,6 +2,13 @@
 
 Solution of handling pre- and post actions on database upgrades (imports) to Aras Innovator
 
+- [Background](#background)
+- [The problem this solution solves](#the-problem-this-solution-solves)
+- [The concept](#the-concept)
+- [Supported/verified](#supportedverified)
+- [Technical description](#technical-description)
+  - [Packages](#packages)
+
 ## Background
 
 When working with Aras Innovator the updates are done via Aras Import tool. The tool imports packages to an Aras Innovator environment. (Package have been exported via Aras Export tool from another environment. )  
@@ -18,7 +25,8 @@ Use case examples:
 
 ## The problem this solution solves
 
-This solutions aims to remove the need of using another tool than the Import/ConsoleUpgrade tool to update an Aras environment.
+This solutions aims to remove the need of using another tool than the Import/ConsoleUpgrade tool to update an Aras environment. As using another tool most often adds to the complexity of the deployment.  
+With this solution we can simply use Aras methods. No need to manage/learn how a different tool works, as this solution is pure standard "Aras configuration/development"
 
 ## The concept
 
