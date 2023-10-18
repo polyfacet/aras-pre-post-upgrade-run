@@ -39,7 +39,9 @@ See examples: [HC_DatabaseUpgradePreRun](./src/packages/pre_run/Import/Method/HC
 The solution is developed on Release 2023 of Aras Innovator.  
 The solution has been tested on the following releases.
 
-- R22?
+- 🟢 R2023
+- 🟢 R22
+- 🟢 R12SP14
 
 ## Getting started
 

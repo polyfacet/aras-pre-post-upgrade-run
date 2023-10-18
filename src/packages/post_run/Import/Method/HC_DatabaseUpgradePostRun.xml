@@ -15,7 +15,10 @@ foreach (var action in actions) {
         // Execute action if the action matches the current release
         try {
             System.Threading.Tasks.Task task = System.Threading.Tasks.Task.Run(action.Value);
-            task.Wait(); // task.Wait(5000); Optionaly just wait a limited time. For longer jobs, that we don't want/need the upgrade tool to wait for.
+            task.Wait(); 
+            // The Import tool will get a timeout exception if the time exceeds 90 (default) seconds
+            // Even though the Import tool in that case may imply failure,
+            // that is not the case. The method will continue to be executed
         }
         catch (Exception ex) {
             string errorLogMessage = ex.ToString();
