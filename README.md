@@ -45,7 +45,7 @@ The solution has been tested on the following releases.
 
 ## Getting started
 
-0. Have an Aras Innovator environment. (As mentioned, it has currently only been tested on the 2023 release)
+0. Have an Aras Innovator environment.
 1. Clone this repo
 2. Configure: [env.config](./scripts/deploy/env.config)
 3. Run [deploy.ps1](./scripts/deploy/deploy.ps1) to install solution
